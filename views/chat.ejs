@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8"/>
+        <title>Node Chat - <%= username %></title>
+        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Node Chat</h1>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Chat</h2>
+                <p class="card-text">You are logged as <%= username %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div id="render-block">
+                        <% data.forEach((e) => { %>
+                            <% if (e.type == 'info') { %>
+                                <p><i><%= e.message %></i></p>
+                            <% } else { %>
+                                <p><b><mark><%= e.username %></mark></b>: <%= e.message %></p>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="input-group" id="sendform">
+                        <input class="form-control" id="message" type="text" placeholder="Your message..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" id="send">Send</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="card-footer">
+                <a class="rightalign" href="/logout">Logout</a>
+            </div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/client.js"></script>
+    </body>
+</html>

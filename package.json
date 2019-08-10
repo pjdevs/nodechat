@@ -1,0 +1,17 @@
+{
+    "name": "nodechat",
+    "version": "0.1.0",
+    "description": "A simple chat in Node.js",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "ejs": "^2.6.2",
+        "express": "^4.17.1",
+        "express-session": "^1.16.2",
+        "express-socket.io-session": "^1.3.5",
+        "morgan": "^1.9.1",
+        "socket.io": "^2.2.0"
+    },
+    "author": "pjdevs <pj33720@gmail.com>",
+    "repository": "https://github.com/pjdevs/nodechat",
+    "license": "GPL-3.0"
+}
